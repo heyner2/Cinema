@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -6,7 +6,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Models\Contratos\ICine.cs" />
+    <Content Include="Models\Contratos\IPelicula.cs" />
+    <Content Include="Models\Contratos\ISala.cs" />
+    <Content Include="Models\Enum\Estado.cs" />
+    <Content Include="Models\Enum\Genero.cs" />
+    <Content Include="Models\Enum\Turno.cs" />
+    <Content Include="Models\Pelicula.cs" />
+    <Content Include="Models\Repositorios\CineRepositorio.cs" />
+    <Content Include="Models\Repositorios\PeliculasRepositorio.cs" />
+    <Content Include="Models\Repositorios\SalaRepositorio.cs" />
+    <Content Include="Models\Ticket.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
 </Project>

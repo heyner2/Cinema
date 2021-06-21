@@ -23,9 +23,17 @@ namespace Cinema
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-        }
+            services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", config=>
+            {
+                config.Cookie.Name = "LoginCookie";
+                config.LoginPath = "/Login/Login";
+                config.AccessDeniedPath = "/Login/Login";
+                config.ExpireTimeSpan = TimeSpan.FromMinutes(10);               
+            });
 
+            services.AddControllersWithViews();
+            services.AddSingleton<Identity.Identity>();
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -43,7 +51,8 @@ namespace Cinema
             app.UseStaticFiles();
 
             app.UseRouting();
-
+          
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

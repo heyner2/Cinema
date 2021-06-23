@@ -7,7 +7,16 @@ namespace Cinema.Models.Contratos
 {
     interface IPelicula
     {
-       
+
+     public bool CrearPelicula(Pelicula pelicula);
+
+     public (bool existe,Pelicula pelicula) ObtenerPelicula(string titulo);  
+
+     public bool EditarPelicula(Pelicula pelicula);
+
+     public bool EliminarPelicula(string nombre);
+
+     public List<Pelicula> ObtenerPeliculas();
        
     }
 }

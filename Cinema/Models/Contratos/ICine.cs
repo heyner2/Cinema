@@ -7,8 +7,14 @@ namespace Cinema.Models.Contratos
 {
     interface ICine
     {
-        
+    
+     public bool Open(DateTime time);
 
-      
+     public void Close(bool open);
+
+     public Ticket  ReservarEspacio(Pelicula pelicula);
+
+     public List<string> ObtenerGeneros();
+
     }
 }

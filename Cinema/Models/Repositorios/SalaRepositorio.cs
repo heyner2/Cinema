@@ -7,6 +7,7 @@ namespace Cinema.Models.Repositorios
 {
     public class SalaRepositorio
     {
+        
 
     }
 }

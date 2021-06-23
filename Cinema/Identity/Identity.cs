@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Cinema.Identity
 {
@@ -26,7 +27,7 @@ namespace Cinema.Identity
                 new Claim(ClaimTypes.Role,"Admin")
             };
 
-                var UserIdentity = new ClaimsIdentity(UserClaims, "UserClaims");
+                var UserIdentity = new ClaimsIdentity(UserClaims, CookieAuthenticationDefaults.AuthenticationScheme);
                 AddIdentity(UserIdentity);
 
                 return true;
@@ -56,6 +57,13 @@ namespace Cinema.Identity
         {
             return userPrincipal.Claims.Where(c => c.Type == ClaimTypes.Name).Select(c => c.Value).SingleOrDefault();
         }
+
+
+ public string getCorreo()
+        {
+            return userPrincipal.Claims.Where(c => c.Type == ClaimTypes.Email).Select(c => c.Value).SingleOrDefault();
+        }
+
 
         public bool ValidSession()
         {

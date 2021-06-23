@@ -4,4 +4,8 @@
 @{
 }
 
-<h1>Welcome @ViewBag.username</h1>
+<h1>Welcome @User.Identity.Name </h1>
+
+@foreach(var c in User.Claims){
+<p>@c.Type @c.Value</p>
+}

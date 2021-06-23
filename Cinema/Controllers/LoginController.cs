@@ -43,8 +43,6 @@ namespace Cinema.Controllers
                 HttpContext.SignInAsync(_identity.GetPrincipal());
 
             }
-
-            var identity = _identity.GetPrincipal().Identity;
             
             return View();
 
@@ -53,25 +51,17 @@ namespace Cinema.Controllers
 
         public IActionResult LogOut()
         {
-
-
-            if (_identity.ValidSession())
-            {
                 HttpContext.SignOutAsync();
-
-            }
-
-            return View("Login");
-
-
+            
+            return View("Login"); 
         }
 
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles ="Vendedor")]
         public IActionResult Secure()
         {
-           ViewBag.username= _identity.getUserName();
+           ViewBag.username= _identity.getCorreo();
             
             return View();
         }

@@ -82,6 +82,9 @@ namespace Cinema.Models
         return Peliculas.PeliculasLista;
      }
 
-
+        (bool existe, Pelicula pelicula) IPelicula.ObtenerPelicula(string titulo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

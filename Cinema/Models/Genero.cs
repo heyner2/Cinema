@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 namespace Cinema.Models
 {
 
-public class Genero {
+public class Generos {
 
-public Genero(int id,string nombre)
+public Generos(Genero id,string nombre)
 {
-    this.Id=id,
-    this.nombre=nombre
+            this.Id = id;
+    this.nombre = nombre;
 }
 
- public int Id { get; set; }
+ public Genero Id { get; set; }
  public string nombre { get; set; }
 }
 

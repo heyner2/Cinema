@@ -15,12 +15,12 @@
     <Content Include="Models\Pelicula.cs" />
     <Content Include="Models\Repositorios\CineRepositorio.cs" />
     <Content Include="Models\Repositorios\PeliculasRepositorio.cs" />
-    <Content Include="Models\Repositorios\SalaRepositorio.cs" />
     <Content Include="Models\Ticket.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
   </ItemGroup>
 
   <ItemGroup>

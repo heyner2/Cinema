@@ -15,7 +15,7 @@ namespace Cinema.Models
     }
 
      public Pelicula(int Duracion, string Titulo,string Director, DateTime ReleaseDate, string Protagonista,
-     Genero Genero, decimal Precio, Turno Turno, Estado estado, string RutaImagen)
+     Genero Genero, decimal Precio, Turno Turno, Estado estado, string RutaImagen, int Sala)
     {
         
     }

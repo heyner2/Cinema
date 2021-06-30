@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinema.Models.Contratos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Cinema.Models.Repositorios
 
 
         public bool Open(DateTime time){
-
+            return true;
         }
 
      public void Close(bool open){
@@ -24,46 +25,64 @@ namespace Cinema.Models.Repositorios
       
          if(pelicula!=null){
 
-        var peli=(from p in Peliculas.PeliculasLista where (p.titulo==pelicula.titulo) 
+        var peli=(from p in Peliculas.PeliculasLista where (p.Titulo==pelicula.Titulo) 
         select p).FirstOrDefault();
 
-        if(asientos[peli.Salas-1]>=espectadores){
-        asientos[peli.Salas-1]= asientos[peli.Salas-1]-espectadores; 
+        if(asientos[peli.Sala-1]>=espectadores){
+        asientos[peli.Sala-1]= asientos[peli.Sala-1]-espectadores; 
 
         Ticket tkt =new Ticket();
 
-        string guid=new GUID();
-        guid.Replace("-","");
-        guid.Replace("/","");
-        tkt.id=guid;
-        tkt.precio=(peli.precio*espectadores);
-        tkt.asientos=espectadores;
-        tkt.titulo=peli.titulo;
-        tkt.FechaDePelicul=DateTime.Now();
-        tkt.turno=peli.turno();
+        string guid = Convert.ToString(Guid.NewGuid());
+        guid= guid.Replace("-","");
+        guid = guid.Replace("/", "");
+        tkt.Id=guid;
+        tkt.Total=(peli.Precio*espectadores);
+        tkt.Asientos=espectadores;
+        tkt.Titulo=peli.Titulo;
+        tkt.FechaDePelicula=DateTime.Now;
+        tkt.Turno=peli.Turno;
         
 
         return(true, tkt); 
         }else{
            return(false, null);  
         }
-         
-         }
+
+            }
+            else
+            {
+                return (false, null);
+            }
      }
 
-     public List<Genero> ObtenerGeneros(){
+     public List<Generos> ObtenerGeneros(){
 
-    List<Genero> generos =new List<Genero>(){
-          new Genero(Genero.Comedia,"Comedia"),
-          new Genero(Genero.Terror,"Terror"),
-          new Genero(Genero.Romance,"Romance"),
-         new Genero(Genero.Accion,"Accion"),
-        new Genero(Genero.Ciencia_Ficcion,"Ciencia Ficcion") 
-      }
+            List<Generos> generos = new List<Generos>(){
+          new Generos(Genero.Comedia,"Comedia"),
+          new Generos(Genero.Terror,"Terror"),
+          new Generos(Genero.Romance,"Romance"),
+         new Generos(Genero.Accion,"Accion"),
+        new Generos(Genero.Ciencia_Ficcion,"Ciencia Ficcion")
+      };
 
       return generos;
 
      }
-  
+
+        public bool ValidarSala()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CalcularAsientos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> ObtenerHorarios()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

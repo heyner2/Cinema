@@ -20,6 +20,9 @@ namespace Cinema.Controllers
 
         public IActionResult Index()
         {
+
+           
+            string id = guid;
             return View();
         }
 

@@ -14,7 +14,7 @@ namespace Cinema.Models.Contratos
 
      public (bool espacio, Ticket ticket)  ReservarEspacio(Pelicula pelicula,int espectadores);
 
-     public List<string> ObtenerGeneros();
+     public List<Generos> ObtenerGeneros();
 
        public bool ValidarSala();
 

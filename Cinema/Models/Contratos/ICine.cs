@@ -12,7 +12,7 @@ namespace Cinema.Models.Contratos
 
      public void Close(bool open);
 
-     public Ticket  ReservarEspacio(Pelicula pelicula);
+     public (bool espacio, Ticket ticket)  ReservarEspacio(Pelicula pelicula,int espectadores);
 
      public List<string> ObtenerGeneros();
 

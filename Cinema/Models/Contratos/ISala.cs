@@ -14,11 +14,8 @@ namespace Cinema.Models.Contratos
 
     public void ReservarAsientos();
 
-
     public bool LiberarAsientos();
 
     public List<string> ObtenerHorarios();
-
-
     }
 }

@@ -39,6 +39,8 @@ namespace Cinema.Models
         public Estado Estado { get; set; }
 
         public string RutaImagen { get; set; }
+
+        public int Sala { get; set; }
         
     }
 

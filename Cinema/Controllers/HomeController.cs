@@ -17,12 +17,10 @@ namespace Cinema.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
 
-           
-            string id = guid;
+
             return View();
         }
 

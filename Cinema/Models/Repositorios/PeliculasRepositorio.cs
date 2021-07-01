@@ -26,10 +26,10 @@ namespace Cinema.Models
      public (bool existe, Pelicula pelicula) ObtenerPelicula(string titulo){
 
      //Cosulta hecha con LINQ
-     List<Pelicula> pelicula=(from p in Peliculas.PeliculasLista where (p.Titulo==Titulo) 
+     List<Pelicula> pelicula=(from p in Peliculas.PeliculasLista where (p.Titulo==titulo) 
       orderby p.Titulo ascending select p ).ToList();
      
-     var peli=(from p in Peliculas.PeliculasLista.Where(p=>p.Titulo==Titulo) select p).FirstOrDefault();
+     var peli=(from p in Peliculas.PeliculasLista.Where(p=>p.Titulo==titulo) select p).FirstOrDefault();
     
        if(pelicula!=null){
            return (true, peli);
@@ -42,15 +42,12 @@ namespace Cinema.Models
        if(pelicula!=null){
            if(Peliculas.PeliculasLista.Contains(pelicula)){
               var peli =(from p in Peliculas.PeliculasLista
-              select p).ToList();
-                 
-           foreach(var p in peli)
-                    {
-                        if (p.Titulo == pelicula.Titulo)
-                        {
-                            p.Titulo = pelicula.Titulo;
-                        }
-                    }
+               where (p.Titulo== pelicula.Titulo)  select p).FirstOrDefault();
+
+                    peli.Titulo = pelicula.Titulo;
+                    peli.Precio = pelicula.Precio;
+                    peli.Estado = pelicula.Estado;
+                    peli.Turno  =  pelicula.Turno;                                           
                     
               return true;
            }else{

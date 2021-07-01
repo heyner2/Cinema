@@ -15,32 +15,24 @@ namespace Cinema.Models.Repositorios
         public static int[] asientos = {15,15,15,15,15,15,15,15};
 
 
-        public bool Open(DateTime time){
+        public void Open(){
 
            int horaActual=DateTime.Now.Hour;
            if(horaActual>6){
-               Validacion=true;
-               return Validacion;
+               Validacion=true;             
            }else{
-            Validacion=false;
-               return Validacion;
+            Validacion=false;              
            }            
         }
 
 
-     public void Close(bool open){
+     public void Close(){
         int horaActual=DateTime.Now.Hour;
-         if(open){
+         if(Validacion){
             if(horaActual>23 && horaActual<6){
-                Validacion=false;
-                return Validacion;
-            }else{
-                 Validacion=true;
-                return false;
+                Validacion=false;               
             }
-         }
-       
-      
+         }             
      }
 
      public (bool espacio, Ticket ticket) ReservarEspacio(Pelicula pelicula, int espectadores){
@@ -94,7 +86,7 @@ namespace Cinema.Models.Repositorios
 
         public int ValidarSala(Pelicula Pelicula)
         {
-         int asientosDisponibles=   asientos[pelicula.Sala-1];  
+         int asientosDisponibles=   asientos[Pelicula.Sala-1];  
          
          return asientosDisponibles;
         }
@@ -103,7 +95,7 @@ namespace Cinema.Models.Repositorios
         {
             List<int> asientosDisponibles =new List<int>();
           for(var i=0;i <asientos.Length;i++){
-            asientosDisponibles.Add(asiento[i]);
+            asientosDisponibles.Add(asientos[i]);
           }  
        
          
@@ -111,13 +103,19 @@ namespace Cinema.Models.Repositorios
         }
 
 
-       
+
         public List<string> ObtenerHorarios()
         {
-           List<string> turnos=new List<string>(){
-               "Matutino","Vespertino","Nocturno";
+            List<string> turnos = new List<string>(){
+               "Matutino","Vespertino","Nocturno"
+            };
+
+              return turnos;
+        }
+
+      
            }
 
-        }
-    }
+
 }
+

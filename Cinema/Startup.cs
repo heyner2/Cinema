@@ -1,3 +1,6 @@
+using Cinema.Models;
+using Cinema.Models.Contratos;
+using Cinema.Models.Repositorios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +27,11 @@ namespace Cinema
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+
+            services.AddSingleton<ICine, CineRepositorio>();
+
+            services.AddScoped<IPelicula, PeliculasRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

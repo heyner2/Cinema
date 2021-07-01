@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Cinema.Models.Contratos
 {
-    interface ICine
+   public interface ICine
     {
     
-     public bool Open(DateTime time);
+     public void Open();
 
-     public void Close(bool open);
+     public void Close();
 
      public (bool espacio, Ticket ticket)  ReservarEspacio(Pelicula pelicula,int espectadores);
 
@@ -18,7 +18,7 @@ namespace Cinema.Models.Contratos
 
       public  int ValidarSala(Pelicula Pelicula);
 
-      public List<int> ValidarSalas(Pelicula Pelicula);
+      public List<int> ValidarSalas();
 
      public List<string> ObtenerHorarios();
 

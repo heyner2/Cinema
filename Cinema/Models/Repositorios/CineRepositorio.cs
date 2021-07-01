@@ -9,16 +9,38 @@ namespace Cinema.Models.Repositorios
     public class CineRepositorio : ICine
     {
         public static int Salas = 7;
+
+        public static bool Validacion {get; set;}
         
         public static int[] asientos = {15,15,15,15,15,15,15,15};
 
 
         public bool Open(DateTime time){
-            return true;
+
+           int horaActual=DateTime.Now.Hour;
+           if(horaActual>6){
+               Validacion=true;
+               return Validacion;
+           }else{
+            Validacion=false;
+               return Validacion;
+           }            
         }
 
-     public void Close(bool open){
 
+     public void Close(bool open){
+        int horaActual=DateTime.Now.Hour;
+         if(open){
+            if(horaActual>23 && horaActual<6){
+                Validacion=false;
+                return Validacion;
+            }else{
+                 Validacion=true;
+                return false;
+            }
+         }
+       
+      
      }
 
      public (bool espacio, Ticket ticket) ReservarEspacio(Pelicula pelicula, int espectadores){
@@ -70,19 +92,32 @@ namespace Cinema.Models.Repositorios
 
      }
 
-        public bool ValidarSala()
+        public int ValidarSala(Pelicula Pelicula)
         {
-            throw new NotImplementedException();
+         int asientosDisponibles=   asientos[pelicula.Sala-1];  
+         
+         return asientosDisponibles;
         }
 
-        public void CalcularAsientos()
+        public List<int> ValidarSalas()
         {
-            throw new NotImplementedException();
+            List<int> asientosDisponibles =new List<int>();
+          for(var i=0;i <asientos.Length;i++){
+            asientosDisponibles.Add(asiento[i]);
+          }  
+       
+         
+         return asientosDisponibles;
         }
 
+
+       
         public List<string> ObtenerHorarios()
         {
-            throw new NotImplementedException();
+           List<string> turnos=new List<string>(){
+               "Matutino","Vespertino","Nocturno";
+           }
+
         }
     }
 }

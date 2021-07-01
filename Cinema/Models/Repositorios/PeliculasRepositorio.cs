@@ -23,16 +23,16 @@ namespace Cinema.Models
         }
 
 
-     public (bool existe, List<Pelicula> pelicula) ObtenerPelicula(string titulo){
+     public (bool existe, Pelicula pelicula) ObtenerPelicula(string titulo){
 
      //Cosulta hecha con LINQ
-     List<Pelicula> pelicula=(from p in Peliculas.PeliculasLista where (p.Titulo==titulo) 
+     List<Pelicula> pelicula=(from p in Peliculas.PeliculasLista where (p.Titulo==Titulo) 
       orderby p.Titulo ascending select p ).ToList();
-     /*
-     var peli=from p in Peliculas.PeliculasLista.Where(p=>p.Titulo==titulo) select p;
-      */
+     
+     var peli=(from p in Peliculas.PeliculasLista.Where(p=>p.Titulo==Titulo) select p).FirstOrDefault();
+    
        if(pelicula!=null){
-           return (true, pelicula);
+           return (true, peli);
        }else{
            return (false,null);
        }  
@@ -82,9 +82,6 @@ namespace Cinema.Models
         return Peliculas.PeliculasLista;
      }
 
-        (bool existe, Pelicula pelicula) IPelicula.ObtenerPelicula(string titulo)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

@@ -16,13 +16,13 @@ namespace Cinema.Models.Contratos
 
      public List<Generos> ObtenerGeneros();
 
-       public bool ValidarSala();
+      public  int ValidarSala(Pelicula Pelicula);
 
-     public void CalcularAsientos();
+      public List<int> ValidarSalas(Pelicula Pelicula);
 
-    public List<string> ObtenerHorarios();
+     public List<string> ObtenerHorarios();
 
-
+     
 
     }
 }

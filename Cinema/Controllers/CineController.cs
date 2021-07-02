@@ -18,19 +18,6 @@ namespace Cinema.Controllers
             _repo = repo;
         }
 
-        public IActionResult Index(Pelicula peli, int espectadores)
-        {
-            bool reservado = _repo.ReservarEspacio(peli, espectadores).espacio;
-
-            Ticket tkt=null;
-
-
-           if (reservado)
-            {
-            tkt = _repo.ReservarEspacio(peli, espectadores).ticket;
-
-            }
-            return View(tkt);
-        }
+       
     }
 }

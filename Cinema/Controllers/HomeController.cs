@@ -21,7 +21,7 @@ namespace Cinema.Controllers
         {
 
 
-            return View();
+            return View(Peliculas.PeliculasLista);
         }
 
         public IActionResult Privacy()

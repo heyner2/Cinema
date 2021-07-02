@@ -17,7 +17,18 @@ namespace Cinema.Models
      public Pelicula(int Duracion, string Titulo,string Director, DateTime ReleaseDate, string Protagonista,
      Genero Genero, decimal Precio, Turno Turno, Estado estado, string RutaImagen, int Sala)
     {
-        
+            this.Duracion = Duracion;
+            this.Titulo = Titulo;
+            this.Director = Director;
+            this.ReleaseDate = ReleaseDate;
+            this.Protagonista = Protagonista;
+            this.Genero = Genero;
+            this.Precio = Precio;
+            this.Turno = Turno;
+            this.Estado = estado;
+            this.RutaImagen = RutaImagen;
+            this.Sala = Sala;
+
     }
 
         public int Duracion { get; set; }

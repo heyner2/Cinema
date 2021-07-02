@@ -69,3 +69,36 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+/* aqui comienza la pagina principal */
+
+.home-icon {
+    margin-right: 30px;
+    position: relative;
+    right: 100px;
+}
+
+ul li{
+    margin-right: 30px;
+}
+
+a i:hover {
+    color: white;
+    box-shadow: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+a p {
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  position: relative;
+  top: 5px;
+}
+
+  a p:hover {
+      color: white;
+      box-shadow: rgba(0,0,0,0.2);
+      cursor: pointer;
+  }

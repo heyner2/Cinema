@@ -1,7 +1,9 @@
-﻿@{
+﻿@model  List<Pelicula>
+
+@{
     ViewData["Title"] = "Home Page";
 }
-
+<br />
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -24,6 +26,22 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+
+@foreach(var peli in Model)
+            {
+              <div class="card">
+                  <div class="card-header">
+                      <img src="@peli.RutaImagen" height="600" width="600" />
+                  </div>
+                  <div class="card-body">
+                      <h2>@peli.Titulo</h2>
+                  </div>
+                  <div class="card-footer">
+
+                  </div>
+
+              </div>
+            }
 
 @section Scripts{ 
     <script>

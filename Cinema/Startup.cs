@@ -29,7 +29,7 @@ namespace Cinema
             services.AddControllersWithViews();
 
             //servicios de tipo repositorio, creados para inyeccion de dependencia
-            services.AddSingleton<ICine, CineRepositorio>();
+            services.AddScoped<ICine, CineRepositorio>();
 
             services.AddScoped<IPelicula, PeliculasRepositorio>();
         }

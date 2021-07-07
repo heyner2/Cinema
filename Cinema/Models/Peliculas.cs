@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Cinema.Models
 {
 public class Peliculas{
-
+            
 public static List<Pelicula> PeliculasLista =new List<Pelicula>(){
 new Pelicula(120,"El conjuro", "Henry Castro",DateTime.Parse("2021/04/25"),"Patrick Wilson, Vera Farmiga",
             Genero.Terror,3.50m,Enum.Turno.Nocturno,Enum.Estado.Activo,"Images/Conjuro.png",1),

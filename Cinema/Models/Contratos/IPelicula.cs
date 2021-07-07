@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Models.Contratos
 {
-    interface IPelicula
+   public interface IPelicula
     {
 
      public bool CrearPelicula(Pelicula pelicula);

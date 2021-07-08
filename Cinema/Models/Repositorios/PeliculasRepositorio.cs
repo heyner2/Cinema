@@ -23,15 +23,28 @@ namespace Cinema.Models
         }
 
 
-     public (bool existe, Pelicula pelicula) ObtenerPelicula(string titulo){
+        public (bool existe, Pelicula pelicula) ObtenerPelicula(string titulo) {
 
-     //Cosulta hecha con LINQ
-     List<Pelicula> pelicula=(from p in Peliculas.PeliculasLista where (p.Titulo==titulo) 
-      orderby p.Titulo ascending select p ).ToList();
-     
-     var peli=(from p in Peliculas.PeliculasLista.Where(p=>p.Titulo==titulo) select p).FirstOrDefault();
-    
-       if(pelicula!=null){
+            Pelicula peli = null;
+
+            if (String.IsNullOrEmpty(titulo))
+            {
+
+            }
+            else
+            {
+                List<Pelicula> pelicula = (from p in Peliculas.PeliculasLista
+                                           where (p.Titulo.Equals(titulo))
+|| (p.Titulo.ToLower().Equals(titulo.ToLower())) || (p.Titulo.ToLower().Contains(titulo.ToLower()))
+                                           orderby p.Titulo ascending
+                                           select p).ToList();
+
+                 peli = (from p in pelicula where (p.Titulo == titulo) || (p.Titulo.ToLower().Contains(titulo.ToLower())) select p).FirstOrDefault();
+
+            }
+            //Cosulta hecha con LINQ
+
+            if (peli!=null){
            return (true, peli);
        }else{
            return (false,null);

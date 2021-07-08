@@ -1,17 +1,28 @@
 ﻿@model Pelicula
-@{ 
+@{
     var peli = Model;
 }
 
-<div class="card shadow" style="width: 1200px; margin-bottom: 15px;">
-    <img src="~/@peli.RutaImagen" height="600" width="1200" />
-    <div class="card-body text-center">
-        <h2 class="card-title">@peli.Titulo</h2>
-        <hr style="font-weight: bold; color: black" />
-        <br />
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <br />
-        <a href="#" class="btn btn-primary">Ver detalles</a>
+@if (Model == null)
+{
+    <div style="width: 800px; height: 100px; margin: auto" class="alert alert-danger text-center" role="alert">
+        <h3 class="font-weight-bold">  No se encontro ninguna pelicula</h3>
     </div>
+}
+else
+{
+    <div class="card shadow" style="width: 1200px; margin-bottom: 15px;">
+        <img src="~/@peli.RutaImagen" height="600" width="1200" />
+        <div class="card-body text-center">
+            <h2 class="card-title">@peli.Titulo</h2>
+            <hr style="font-weight: bold; color: black" />
+            <br />
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <br />
+            <a href="#" class="btn btn-primary">Ver detalles</a>
+        </div>
+    </div>
+}
 
-    
+
+

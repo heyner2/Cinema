@@ -18,13 +18,24 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">                     
+                    <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark display-4 font-weight-bold" asp-area="" asp-controller="Home" asp-action="Privacy"><p>Peliculas </p></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark display-4 font-weight-bold" asp-area="" asp-controller="Home" asp-action="Privacy"><p>Reservas</p></a>
                         </li>
+                        <li class="nav-item" style="margin-left: 60px">
+                            <form asp-action="PeliculaDetalle" asp-controller="Pelicula" method="get">
+                                <div class="input-group flex-nowrap" style="width: 500px; position: relative; top: 32px; ">
+                                    <div class="input-group-prepend">
+                                        <button type="submit" class="input-group-text" id="addon-wrapping"><i class="fas fa-search"></i></button>
+                                    </div>
+                                    <input required name="Titulo" type="text" class="form-control" placeholder="Buscar pelicula" aria-label="Username" aria-describedby="addon-wrapping">
+                                </div>
+                            </form>
+                        </li>
+
                     </ul>
                 </div>
             </div>

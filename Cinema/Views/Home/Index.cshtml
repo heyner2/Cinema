@@ -3,6 +3,13 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+@if (ViewBag.error != "" || ViewBag.error != null)
+{
+    <div style="margin: auto" class="alert alert-danger text-center" role="alert">
+        <h3 class="font-weight-bold">  No se encontro ninguna pelicula</h3>
+    </div>
+}
+
 <br />
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -15,21 +22,21 @@
 
         @foreach (var peli in Model)
         {
-        <a style="text-decoration:none" href="@Url.Action("PeliculaDetalle","Pelicula", new {Titulo=peli.Titulo } )">
-            <div class="carousel-item @active">
-                <div class="card shadow" style="width: 1200px; margin-bottom: 15px;">
-                    <img src="@peli.RutaImagen" height="400" width="1200" />
-                    <div class="card-body text-center" style="background-color: lightslategray">
-                        <h2 class="card-title">@peli.Titulo</h2>
-                        <hr style="font-weight: bold; color: black" />
-                        <br />
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <br />
-                        <a href="@Url.Action("PeliculaDetalle","Pelicula", new {Titulo=peli.Titulo } )" class="btn btn-primary">Ver detalles</a>
+            <a style="text-decoration:none" href="@Url.Action("PeliculaDetalle","Pelicula", new {Titulo=peli.Titulo } )">
+                <div class="carousel-item @active">
+                    <div class="card shadow" style="width: 1200px; margin-bottom: 15px;">
+                        <img src="@peli.RutaImagen" height="400" width="1200" />
+                        <div class="card-body text-center" style="background-color: #F6C6EA">
+                            <h2 class="card-title">@peli.Titulo</h2>
+                            <hr style="font-weight: bold; color: black" />
+                            <br />
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <br />
+                            <a href="@Url.Action("PeliculaDetalle","Pelicula", new {Titulo=peli.Titulo } )" class="btn btn-primary">Ver detalles</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
+            </a>
             counter++;
             if (counter > 0)
             {
@@ -52,7 +59,7 @@
     <script>
         $('.carousel').carousel(
             {
-                interval: 2000
+                interval: 3000,
             }
         );
     </script>
